@@ -1,0 +1,60 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+  <view class="title">编辑成绩信息</view>
+
+  <view class="scoreInfo_modify_view">
+    <form bindsubmit="formSubmit">
+       <view class="formItem">
+        <view class="label">记录编号：</view>
+        <view class="formControl">
+          <input type="text" name="scoreInfo.scoreId" disabled="true" value="{{scoreId}}" />
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="label">学生：</view>
+        <view class="formControl">
+          <picker bindchange="bind_studentObj_change" value="{{studentObj_Index}}" range-key="studentName" range="{{students}}">
+            <view style="display:flex;border:1px solid green;">
+              <input hidden="true" name="scoreInfo.studentObj.studentNumber" value="{{students[studentObj_Index].studentNumber}}" />
+              <input style="width:90%;border:0px;" value="{{students[studentObj_Index].studentName}}"></input>
+              <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+            </view>
+          </picker> 
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">课程：</view>
+        <view class="formControl">
+          <picker bindchange="bind_courseObj_change" value="{{courseObj_Index}}" range-key="courseName" range="{{courseInfos}}">
+            <view style="display:flex;border:1px solid green;">
+              <input hidden="true" name="scoreInfo.courseObj.courseNumber" value="{{courseInfos[courseObj_Index].courseNumber}}" />
+              <input style="width:90%;border:0px;" value="{{courseInfos[courseObj_Index].courseName}}"></input>
+              <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+            </view>
+          </picker> 
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">成绩得分：</view>
+        <view class="formControl">
+          <input type="text" name="scoreInfo.scoreValue" placeholder="请输入成绩得分" value="{{scoreValue}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">学生评价：</view>
+        <view class="formControl">
+          <input type="text" name="scoreInfo.studentEvaluate" placeholder="请输入学生评价" value="{{studentEvaluate}}" />
+        </view>
+      </view>
+
+      <view>
+        <button class="vBtn_ok" formType="submit" disabled="{{disabled}}">提交修改</button>
+      </view>
+    </form>
+  </view>
+</view>

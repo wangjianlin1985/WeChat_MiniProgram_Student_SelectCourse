@@ -1,0 +1,62 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+
+  <view class="title">课程信息详情</view>
+  <view class="courseInfo_detail_view"> 
+      <view class="viewItem">
+        <view class="label">课程编号：</view>
+        <view class="content">
+          <view>{{courseNumber}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">课程名称：</view>
+        <view class="content"> 
+          <view>{{courseName}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">上课老师：</view>
+        <view class="content"> 
+          <view>{{teacherObj}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">上课时间：</view>
+        <view class="content"> 
+          <view>{{courseTime}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">上课地点：</view>
+        <view class="content"> 
+          <view>{{coursePlace}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">课程学分：</view>
+        <view class="content"> 
+          <view>{{courseScore}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">附加信息：</view>
+        <view class="content"> 
+          <view>{{courseMemo}}</view>
+        </view>
+      </view>
+
+      <view>
+        <navigator class="btnReturn" open-type="navigateBack" hover-class="navigator-hover">返回</navigator>
+      </view>
+
+  </view>
+</view>

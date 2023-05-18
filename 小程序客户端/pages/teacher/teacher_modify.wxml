@@ -1,0 +1,96 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+  <view class="title">编辑教师信息</view>
+
+  <view class="teacher_modify_view">
+    <form bindsubmit="formSubmit">
+       <view class="formItem">
+        <view class="label">教师编号：</view>
+        <view class="formControl">
+          <input type="text" name="teacher.teacherNumber" disabled="true" value="{{teacherNumber}}" />
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="label">教师姓名：</view>
+        <view class="formControl">
+          <input type="text" name="teacher.teacherName" placeholder="请输入教师姓名" value="{{teacherName}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">性别：</view>
+        <view class="formControl">
+          <input type="text" name="teacher.teacherSex" placeholder="请输入性别" value="{{teacherSex}}" />
+        </view>
+      </view>
+
+       <view class="formItem">
+        <view class="label">出生日期：</view>
+        <view class="formControl">
+          <picker mode="date"  start="1970-01-01" end="2030-01-01" value="{{teacherBirthday}}" bindchange="bind_teacherBirthday_change" >
+            <view style="display:flex;border:1px solid green;">
+              <input style="width:90%;border:0px;" name="teacher.teacherBirthday" placeholder="选择出生日期"  value="{{teacherBirthday}}"></input>
+              <text class="clearButton" catchtap="clear_teacherBirthday">x</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+       <view class="formItem">
+        <view class="label">入职日期：</view>
+        <view class="formControl">
+          <picker mode="date"  start="1970-01-01" end="2030-01-01" value="{{teacherArriveDate}}" bindchange="bind_teacherArriveDate_change" >
+            <view style="display:flex;border:1px solid green;">
+              <input style="width:90%;border:0px;" name="teacher.teacherArriveDate" placeholder="选择入职日期"  value="{{teacherArriveDate}}"></input>
+              <text class="clearButton" catchtap="clear_teacherArriveDate">x</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">身份证号：</view>
+        <view class="formControl">
+          <input type="text" name="teacher.teacherCardNumber" placeholder="请输入身份证号" value="{{teacherCardNumber}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">联系电话：</view>
+        <view class="formControl">
+          <input type="text" name="teacher.teacherPhone" placeholder="请输入联系电话" value="{{teacherPhone}}" />
+        </view>
+      </view>
+
+       <view class="formItem">
+        <view class="label">教师照片：</view>
+        <view class="formControl" bindtap="select_teacherPhoto">
+          <input type="text" hidden="true" name="teacher.teacherPhoto" value="{{teacherPhoto}}" />
+          <image class="uploadPic" mode="aspectFill" src="{{teacherPhotoUrl}}"></image>
+          <image wx:for="{{teacherPhotoList}}" class="uploadPic" mode="aspectFill" src="{{item}}" wx:key=""></image>
+          <image src="../../images/upic.png" class="uploadPic" mode="widthFix"></image>
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">家庭地址：</view>
+        <view class="formControl">
+          <input type="text" name="teacher.teacherAddress" placeholder="请输入家庭地址" value="{{teacherAddress}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">附加信息：</view>
+        <view class="formControl">
+          <input type="text" name="teacher.teacherMemo" placeholder="请输入附加信息" value="{{teacherMemo}}" />
+        </view>
+      </view>
+
+      <view>
+        <button class="vBtn_ok" formType="submit" disabled="{{disabled}}">提交修改</button>
+      </view>
+    </form>
+  </view>
+</view>

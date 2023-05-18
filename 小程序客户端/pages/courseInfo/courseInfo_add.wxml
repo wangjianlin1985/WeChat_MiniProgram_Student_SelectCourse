@@ -1,0 +1,70 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+  <view class="title">添加图课程信息</view>
+
+  <view class="courseInfo_add_view">
+    <form bindsubmit="formSubmit">
+      <view class="formItem">
+        <view class="label">课程编号：</view>
+        <view class="formControl">
+          <input type="text" name="courseInfo.courseNumber" placeholder="请输入课程编号" value="{{courseNumber}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">课程名称：</view>
+        <view class="formControl">
+          <input type="text" name="courseInfo.courseName" placeholder="请输入课程名称" value="{{courseName}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">上课老师：</view>
+        <view class="formControl">
+          <picker bindchange="bind_teacherObj_change" value="{{teacherObj_Index}}" range-key="teacherName" range="{{teachers}}">
+            <view style="display:flex;border:1px solid green;">
+              <input hidden="true" name="courseInfo.teacherObj.teacherNumber" value="{{teachers[teacherObj_Index].teacherNumber}}" />
+              <input style="width:90%;border:0px;" value="{{teachers[teacherObj_Index].teacherName}}"></input>
+              <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+            </view>
+          </picker> 
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">上课时间：</view>
+        <view class="formControl">
+          <input type="text" name="courseInfo.courseTime" placeholder="请输入上课时间" value="{{courseTime}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">上课地点：</view>
+        <view class="formControl">
+          <input type="text" name="courseInfo.coursePlace" placeholder="请输入上课地点" value="{{coursePlace}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">课程学分：</view>
+        <view class="formControl">
+          <input type="text" name="courseInfo.courseScore" placeholder="请输入课程学分" value="{{courseScore}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">附加信息：</view>
+        <view class="formControl">
+          <input type="text" name="courseInfo.courseMemo" placeholder="请输入附加信息" value="{{courseMemo}}" />
+        </view>
+      </view>
+
+      <view>
+        <button class="vBtn_ok" formType="submit" disabled="{{disabled}}">提交发布</button>
+      </view>
+
+    </form>
+  </view>
+</view>

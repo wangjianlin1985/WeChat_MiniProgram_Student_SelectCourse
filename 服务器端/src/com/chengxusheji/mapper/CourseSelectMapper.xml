@@ -1,0 +1,50 @@
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace命名空间，为了对sql语句进行隔离，方便管理，mapper开发dao方式，使用namespace有特殊作用  
+mapper代理开发时将namespace指定为mapper接口的全限定名  
+ -->
+<mapper namespace="com.chengxusheji.mapper.CourseSelectMapper"> 
+<!--在mapper.xml文件中配置很多的sql语句，执行每个sql语句时，封装为MappedStatement对象 
+mapper.xml以statement为单位管理sql语句  
+ -->
+	<!-- 添加学生选课记录 -->
+	<insert id="addCourseSelect" parameterType="courseSelect">
+		insert into t_courseSelect(studentObj,courseObj,selectTime) values 
+		(#{studentObj.studentNumber},#{courseObj.courseNumber},#{selectTime})
+	</insert>
+
+	<!-- 按照查询条件分页查询学生选课记录 -->
+	<select id="queryCourseSelect" resultMap="courseSelectMap" >
+		select t_courseSelect.* from t_courseSelect,t_courseInfo,t_student ${where} and t_courseSelect.studentObj = t_student.studentNumber and t_courseSelect.courseObj = t_courseInfo.courseNumber limit #{startIndex},#{pageSize}
+	</select>
+	<resultMap id="courseSelectMap" type="courseSelect">
+        <id property="selectId" column="selectId" />
+        <association property="studentObj" column="studentObj" select="com.chengxusheji.mapper.StudentMapper.getStudent" />
+        <association property="courseObj" column="courseObj" select="com.chengxusheji.mapper.CourseInfoMapper.getCourseInfo" />
+    </resultMap>
+
+    <!-- 按照查询条件查询所有学生选课记录 -->
+	<select id="queryCourseSelectList" resultMap="courseSelectMap" >
+		select t_courseSelect.* from t_courseSelect,t_courseInfo,t_student ${where} and t_courseSelect.studentObj = t_student.studentNumber and t_courseSelect.courseObj = t_courseInfo.courseNumber
+	</select>
+
+    <!-- 按照查询条件的学生选课记录数 -->
+	<select id="queryCourseSelectCount" resultType="int">
+		select count(*) from t_courseSelect,t_courseInfo,t_student ${where} and t_courseSelect.studentObj = t_student.studentNumber and t_courseSelect.courseObj = t_courseInfo.courseNumber
+	</select>
+
+	<!-- 根据主键查询某个学生选课记录 -->
+	<select id="getCourseSelect" parameterType="int" resultMap="courseSelectMap">
+		select * from t_courseSelect where t_courseSelect.selectId = #{selectId}
+	</select>
+
+	<!-- 更新学生选课记录 -->
+	<update id="updateCourseSelect" parameterType="courseSelect">
+		update t_courseSelect set studentObj=#{studentObj.studentNumber},courseObj=#{courseObj.courseNumber},selectTime=#{selectTime} where selectId = #{selectId}
+	</update>
+
+	<!-- 删除学生选课记录 -->
+	<delete id="deleteCourseSelect" parameterType="int">
+		delete from t_courseSelect where selectId=#{selectId}
+	</delete>
+
+</mapper>

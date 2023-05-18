@@ -1,0 +1,62 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+
+  <view class="title">班级信息详情</view>
+  <view class="classInfo_detail_view"> 
+      <view class="viewItem">
+        <view class="label">班级编号：</view>
+        <view class="content">
+          <view>{{classNumber}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">班级名称：</view>
+        <view class="content"> 
+          <view>{{className}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">所属专业：</view>
+        <view class="content"> 
+          <view>{{classSpecialFieldNumber}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">成立日期：</view>
+        <view class="content"> 
+          <view>{{classBirthDate}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">班主任：</view>
+        <view class="content"> 
+          <view>{{classTeacherCharge}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">联系电话：</view>
+        <view class="content"> 
+          <view>{{classTelephone}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">附加信息：</view>
+        <view class="content"> 
+          <view>{{classMemo}}</view>
+        </view>
+      </view>
+
+      <view>
+        <navigator class="btnReturn" open-type="navigateBack" hover-class="navigator-hover">返回</navigator>
+      </view>
+
+  </view>
+</view>

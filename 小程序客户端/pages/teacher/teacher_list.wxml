@@ -1,0 +1,78 @@
+<view class="container">
+  <view class="toggleQview" bindtap="toggleQueryViewHide" style="padding:5px;">显示或隐藏查询视图</view>
+  <view class="queryView" hidden="{{queryViewHidden}}">
+    <view class="queryParams">
+      <view class="queryItem">
+        <view class="label">教师编号：</view>
+        <view class="searchControl"><input data-id="teacherNumber" placeholder="请输入教师编号关键字" value="{{teacherNumber}}" bindinput="searchValueInput" /></view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">教师姓名：</view>
+        <view class="searchControl"><input data-id="teacherName" placeholder="请输入教师姓名关键字" value="{{teacherName}}" bindinput="searchValueInput" /></view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">出生日期：</view>
+         <view class="searchControl">
+          <picker mode="date" value="{{teacherBirthday}}" start="1970-01-01" end="2030-01-01" bindchange="bind_teacherBirthday_change" >
+            <view>
+              <input style="width:75%;display:inline-block;float:left;" placeholder="选择出生日期" value="{{teacherBirthday}}"></input>
+              <text class="clearButton" catchtap="clear_teacherBirthday">x</text>
+            </view>
+          </picker> 
+        </view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">入职日期：</view>
+         <view class="searchControl">
+          <picker mode="date" value="{{teacherArriveDate}}" start="1970-01-01" end="2030-01-01" bindchange="bind_teacherArriveDate_change" >
+            <view>
+              <input style="width:75%;display:inline-block;float:left;" placeholder="选择入职日期" value="{{teacherArriveDate}}"></input>
+              <text class="clearButton" catchtap="clear_teacherArriveDate">x</text>
+            </view>
+          </picker> 
+        </view>
+      </view>
+
+    </view>
+
+    <view class="queryButton">
+       <button class="font_12 fl_r op-btn mr_10" bindtap="queryTeacher">查询</button>
+    </view>
+  </view>
+
+  <view class="teacherList">
+  <block wx:for-items="{{teachers}}" wx:key="{{index}}">
+    <view class="teacherItem">
+        <view class="teacherImg">
+          <image src="{{item.teacherPhotoUrl}}"></image>
+        </view>
+        <navigator url="teacher_detail?teacherNumber={{item.teacherNumber}}" hover-class="navigator-hover">
+        <view class="teacherText">
+          <view>教师编号：{{item.teacherNumber}}</view>
+          <view>教师姓名：{{item.teacherName}}</view>
+          <view>性别：{{item.teacherSex}}</view>
+          <view>出生日期：{{item.teacherBirthday}}</view>
+        </view>
+        </navigator>
+    </view>
+    <view class="opt_view" style="display:none;">
+      <button class="font_12 fl_r del-btn mr_10" bindtap="removeTeacher" data-teachernumber="{{item.teacherNumber}}">删除</button> 
+      <navigator url="teacher_modify?teacherNumber={{item.teacherNumber}}" hover-class="navigator-hover">
+        <button class="font_12 fl_r op-btn mr_10">编辑</button>
+      </navigator>
+    </view>
+  </block>
+  </view>
+
+  <view hidden="{{loading_hide}}" class="loading">
+    <view class="loadingImg"><image src="/images/loading.gif" mode="aspectFill"></image></view>
+    <view class="loadingTxt">..加载中..</view>
+  </view>
+  <view class="nodata_view" hidden="{{nodata_hide}}">
+    <image src="/images/Noline.png" mode="widthFix"></image>
+  </view>
+</view>
+

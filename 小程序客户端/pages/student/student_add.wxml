@@ -1,0 +1,119 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+  <view class="title">添加图学生信息</view>
+
+  <view class="student_add_view">
+    <form bindsubmit="formSubmit">
+      <view class="formItem">
+        <view class="label">学号：</view>
+        <view class="formControl">
+          <input type="text" name="student.studentNumber" placeholder="请输入学号" value="{{studentNumber}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">姓名：</view>
+        <view class="formControl">
+          <input type="text" name="student.studentName" placeholder="请输入姓名" value="{{studentName}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">密码：</view>
+        <view class="formControl">
+          <input type="text" name="student.studentPassword" placeholder="请输入密码" value="{{studentPassword}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">性别：</view>
+        <view class="formControl">
+          <input type="text" name="student.studentSex" placeholder="请输入性别" value="{{studentSex}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">所在班级：</view>
+        <view class="formControl">
+          <picker bindchange="bind_classObj_change" value="{{classObj_Index}}" range-key="className" range="{{classInfos}}">
+            <view style="display:flex;border:1px solid green;">
+              <input hidden="true" name="student.classObj.classNumber" value="{{classInfos[classObj_Index].classNumber}}" />
+              <input style="width:90%;border:0px;" value="{{classInfos[classObj_Index].className}}"></input>
+              <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+            </view>
+          </picker> 
+        </view>
+      </view>
+
+       <view class="formItem">
+        <view class="label">出生日期：</view>
+        <view class="formControl">
+          <picker mode="date"  start="1970-01-01" end="2030-01-01" value="{{studentBirthday}}" bindchange="bind_studentBirthday_change" >
+            <view style="display:flex;border:1px solid green;">
+              <input style="width:90%;border:0px;" name="student.studentBirthday" placeholder="选择出生日期"  value="{{studentBirthday}}"></input>
+              <text class="clearButton" catchtap="clear_studentBirthday">x</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">政治面貌：</view>
+        <view class="formControl">
+          <input type="text" name="student.studentState" placeholder="请输入政治面貌" value="{{studentState}}" />
+        </view>
+      </view>
+
+       <view class="formItem">
+        <view class="label">学生照片：</view>
+        <view class="formControl" bindtap="select_studentPhoto">
+          <input type="text" hidden="true" name="student.studentPhoto" value="{{studentPhoto}}" />
+          <image wx:for="{{studentPhotoList}}" class="uploadPic" mode="aspectFill" src="{{item}}" wx:key=""></image>
+          <image src="../../images/upic.png" class="uploadPic" mode="widthFix"></image>
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">联系电话：</view>
+        <view class="formControl">
+          <input type="text" name="student.studentTelephone" placeholder="请输入联系电话" value="{{studentTelephone}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">学生邮箱：</view>
+        <view class="formControl">
+          <input type="text" name="student.studentEmail" placeholder="请输入学生邮箱" value="{{studentEmail}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">联系qq：</view>
+        <view class="formControl">
+          <input type="text" name="student.studentQQ" placeholder="请输入联系qq" value="{{studentQQ}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">家庭地址：</view>
+        <view class="formControl">
+          <input type="text" name="student.studentAddress" placeholder="请输入家庭地址" value="{{studentAddress}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">附加信息：</view>
+        <view class="formControl">
+          <input type="text" name="student.studentMemo" placeholder="请输入附加信息" value="{{studentMemo}}" />
+        </view>
+      </view>
+
+      <view>
+        <button class="vBtn_ok" formType="submit" disabled="{{disabled}}">提交发布</button>
+      </view>
+
+    </form>
+  </view>
+</view>

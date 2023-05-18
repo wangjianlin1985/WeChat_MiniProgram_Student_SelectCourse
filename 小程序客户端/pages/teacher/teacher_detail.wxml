@@ -1,0 +1,83 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+
+  <view class="title">教师信息详情</view>
+  <view class="teacher_detail_view"> 
+      <view class="viewItem">
+        <view class="label">教师编号：</view>
+        <view class="content">
+          <view>{{teacherNumber}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">教师姓名：</view>
+        <view class="content"> 
+          <view>{{teacherName}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">性别：</view>
+        <view class="content"> 
+          <view>{{teacherSex}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">出生日期：</view>
+        <view class="content"> 
+          <view>{{teacherBirthday}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">入职日期：</view>
+        <view class="content"> 
+          <view>{{teacherArriveDate}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">身份证号：</view>
+        <view class="content"> 
+          <view>{{teacherCardNumber}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">联系电话：</view>
+        <view class="content"> 
+          <view>{{teacherPhone}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">教师照片：</view>
+        <view class="content"> 
+          <image mode="aspectFill" src="{{teacherPhotoUrl}}"></image>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">家庭地址：</view>
+        <view class="content"> 
+          <view>{{teacherAddress}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">附加信息：</view>
+        <view class="content"> 
+          <view>{{teacherMemo}}</view>
+        </view>
+      </view>
+
+      <view>
+        <navigator class="btnReturn" open-type="navigateBack" hover-class="navigator-hover">返回</navigator>
+      </view>
+
+  </view>
+</view>

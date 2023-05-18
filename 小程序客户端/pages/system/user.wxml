@@ -1,0 +1,34 @@
+<view class="container">
+  <view  class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" style="with:100%;height:50px;display:none;">授权登录</button>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+     
+    <navigator class="list_a" url="../courseSelect/courseSelect_list">
+        我的选课列表
+    </navigator>
+    <navigator class="list_a" url="../scoreInfo/scoreInfo_list">
+        我的成绩查询
+    </navigator>
+    <navigator class="list_a" url="../news/news_list">
+        新闻信息查询
+    </navigator>
+    <!--
+    <navigator class="list_a" url="../system/lianx?openid={{openid}}">
+        信息管理
+    </navigator>
+    -->
+    
+    <navigator class="list_b" url="../system/lianx">
+        联系我们
+    </navigator>
+    <navigator class="list_b" url="../system/about">
+        关于我们
+    </navigator>
+  </view>
+  <view class="footer">
+    @2020 版权所有
+  </view>
+</view>

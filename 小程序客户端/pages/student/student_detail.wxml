@@ -1,0 +1,104 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+
+  <view class="title">学生信息详情</view>
+  <view class="student_detail_view"> 
+      <view class="viewItem">
+        <view class="label">学号：</view>
+        <view class="content">
+          <view>{{studentNumber}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">姓名：</view>
+        <view class="content"> 
+          <view>{{studentName}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">密码：</view>
+        <view class="content"> 
+          <view>{{studentPassword}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">性别：</view>
+        <view class="content"> 
+          <view>{{studentSex}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">所在班级：</view>
+        <view class="content"> 
+          <view>{{classObj}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">出生日期：</view>
+        <view class="content"> 
+          <view>{{studentBirthday}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">政治面貌：</view>
+        <view class="content"> 
+          <view>{{studentState}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">学生照片：</view>
+        <view class="content"> 
+          <image mode="aspectFill" src="{{studentPhotoUrl}}"></image>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">联系电话：</view>
+        <view class="content"> 
+          <view>{{studentTelephone}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">学生邮箱：</view>
+        <view class="content"> 
+          <view>{{studentEmail}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">联系qq：</view>
+        <view class="content"> 
+          <view>{{studentQQ}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">家庭地址：</view>
+        <view class="content"> 
+          <view>{{studentAddress}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">附加信息：</view>
+        <view class="content"> 
+          <view>{{studentMemo}}</view>
+        </view>
+      </view>
+
+      <view>
+        <navigator class="btnReturn" open-type="navigateBack" hover-class="navigator-hover">返回</navigator>
+      </view>
+
+  </view>
+</view>
